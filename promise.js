@@ -97,7 +97,7 @@ const plus = new Promise((resolve , reject) => {
         .catch()
 */
 
-const condition = true;
+const condition = true;     // true면 resolve, false면 reject
 const promise = new Promise((resolve, reject) => {
     if(condition){
         resolve("성공");
@@ -115,3 +115,101 @@ promise
     });
 //성공
 //Promise {<resolved>: undefined}
+
+// then에 리턴 값이 있으면 다음 then으로 넘어갑니다.
+// Promise를 리턴하면 reslolve나 reject 되어 넘어갑니다.
+// rejct 였으면 catch가 잡는다. 
+
+// 처음 promise 가 성공했을때 message2에 성공을 넘겨주고 그다음 성공했을 때 message3에 성공을 넘겨준다. 
+promise
+    .then((message) => {
+        return new Promise((resolve, reject) => {
+            resolve(message); 
+        });
+    })
+    .then((message2) => {
+        console.log(message2);
+        return new Promise((resolve, reject) => {
+            reject(message2);
+        });
+    })
+    .then((message3) => {
+        console.log(message3);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+ // 이런식으로 사용해서 가독성이 좋아진다.
+ const handleMessage = (message) => {
+    return new Promise((resolve, reject) => {
+        resolve(message); 
+    });
+}
+
+const handleMessage2 = (message2) => {
+    console.log(message2);
+    return new Promise((resolve, reject) => {
+        reject(message2);
+    });
+}
+
+promise
+    .then(handleMessage)
+    .then(handleMessage2)
+    .then((message3) => {
+        console.log(message3);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+// Promise API
+/*
+    Promise.resolve(성공 메세지)
+    Promise.reject(실패 메세지)
+*/
+
+const promise = new Promise((res , rej) => {
+    res("성공");
+});
+​
+const successPromise = Promise.resolve("성공")
+    .then();
+const failurePromise = Promise.reject("실패")
+    .catch();
+
+// Promise.all로 여러 프로미스를 동시에 실행 가능 하다. 단, 하나라도 실패하면 catch로
+
+Promise.all([Users.findOne(), Users.remove(), Users.update()])
+    .then((results) => {})
+    .catch((error) => {})
+
+// Promsie 는 결과값을 가지고 있자만 .then이나 .catch를 붙이기 전까지 반환하지 않는것     
+
+// async wait 
+/*
+
+async func() => {
+    try{
+        const user = await Users.findOne("zero");
+        const updatedUser = await Users.update("zero", "nero");
+        const removeUser = await Users.remove("nero");
+        console.log("다 찾았니");
+    }catch(err){
+        console.log(err);
+    }    
+}
+func()
+*/
+
+// async await도 Promise 기반이므로 Promise를 먼저 알아야 합니다.
+// 동기식으로 보이기 때문에 코드 순서와 실행 순서가 같아요.
+// await 예외 처리를 위해 try catch 로 감쌉니다.
+// await 에서난 에러 처리를 위해 한번에 사용할때는 각 서브미션별로 try catch를 감싸서 사용할시 어디서 에러가 난것인지 처리 가능
+
+
+
+
+
+
