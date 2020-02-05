@@ -163,7 +163,7 @@ function o(){
 
 o(1,2,3,4,5)        //VM1498:2 Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 
-// es6에서는 arguamet 사용하지 않고 펼침 연산자를 통해 사용한다 arguement 는 배열의 메소드 사용 못하지만 펼침 연산자를 사용하면 배열이기때문에 사용가능
+// es6에서는 arguamet 사용하지 않고 펼침 연산자를 사용한다
 const p = (...rest) => console.log(rest)
 
 p(5,6,7,8,9)        //VM1638:1 (5) [5, 6, 7, 8, 9]
