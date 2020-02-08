@@ -25,4 +25,7 @@ console.log(path.parse(__filename));
 //path.delimiter      // 환경변수 구분자  원래 c/npm : c/ node : 
 //':'
 
-/** */
+/*
+    path.join - 절대 경로 무시하고 합침
+    path.resolve - 절대 경로 고려하고 합침 루트는 C:/(윈도)
+*/
