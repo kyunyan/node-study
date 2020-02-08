@@ -1,6 +1,14 @@
 const crypto = require("crypto");
 
-crypto.createHash("sha512").update("비밀번호").digest("base64");
+console.log(crypto.createHash("sha512").update("비밀번호").digest("base64"));
+// 해쉬를 만든다. 
 // sha512 라는 알고리즘을 통해서 알고리즘을 만들어내고 암호화 하고싶은 비밀번호를 update에 넣으면 암호화가된다 
 // digest base64로 출력된다
 
+// hash 로 암호화 하면 다시 복호화 할수가 없다 . 
+// 암호화 <==> 복호화
+// 주로 비밀번호를 작성할때 암호문 해시를 저장한후 사용자의 입력 비밀번호를 암호화 한것과 비교한다
+// 이말은 암호화 한것과 암호화 한것을 비교한다 
+// 이런것을 단방향 암호화 라고 한다 암호화만 하고 복호화는 하지 않기때문에 원래 비밀번호를 찾을수 없다 
+
+/*
