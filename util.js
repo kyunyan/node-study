@@ -56,5 +56,5 @@ randomBytesPromise(64)
     const buf = await randomBytesPromise(64); 
     const salt = buf.toString("base64");
     const key = pbkdf2Promise("이건완" , salt, 651395, 64, "sha512");
-    console.log("password", key.toString("base64"))
+    console.log("password", key.toString("base64"));
 });
