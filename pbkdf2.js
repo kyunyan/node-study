@@ -16,6 +16,6 @@ crypto.randomBytes(64 , (err , buf) => {        // randombyte 가 버퍼에 담�
     });
 });
 
-// 실무에서는 pbkdf2 보다 bcrypt, scrypt 를 더많이 사용한다.
+// 실무에서는 pbkdf2 보다 bcrypt, scrypt 를 더많이 사용한다.  
 console.log(crypto.createHash("sha512").update("비밀번호").digest("base64"));
-// 이방식보다 위에방식이 훨씬 어렵고 해커들이 알아내기 어렵다 
+// 이방식보다 위에방식이 훨씬 어렵고 해커들이 알아내기 어렵다 4

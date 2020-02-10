@@ -12,3 +12,9 @@ console.log(crypto.createHash("sha512").update("비밀번호").digest("base64"))
 // 이런것을 단방향 암호화 라고 한다 암호화만 하고 복호화는 하지 않기때문에 원래 비밀번호를 찾을수 없다 
 
 /*
+    1234 -> fqfq2fqwfgqwgqwgqwf2q
+    9536 -> fqfq2fqwfgqwgqwgqwf2q
+    가끔 우연의 경우로 같을 수도있다  이런것을 비밀번호를 충돌한다 이런것을 비밀번호 충돌
+    똑같은 암호화 해쉬를 찾아 공격 하는 것을 해커들이 한다 . 비밀번호가 짧고 쉬울수록 공격하기가 쉽다. 
+    그래서 node에서는 pbkdf2 라는 알고르즘이라는 것을 지원
+*/
