@@ -14,6 +14,7 @@ fs.readFile("./readme.txt", (err, data) => {
     }
     console.log("2번", data.toString());
 });
+
 fs.readFile("./readme.txt", (err, data) => {
     if(err){
         throw err;

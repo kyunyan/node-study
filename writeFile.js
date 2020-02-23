@@ -3,7 +3,7 @@
 
 const fs = require("fs");
 
-fs.writeFile("./wrtieme.txt", "글을 써주세요111",(err) => {
+fs.writeFile("./wrtieme.txt", "글을 써주세요..",(err) => {
     if(err){
         throw err;
     }
