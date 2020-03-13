@@ -46,6 +46,9 @@ const server = http.createServer((req, res) => {   // 방문이라는 것이 기
 server.on("listening", () => {
     console.log("8080번 포트에서 서버 대기중입니다.");      
 }); 
+server.on("error", (error) => {
+    console.error(error);
+});
 
 // node는 에러에 취약하기 때문에 error에 대비해야된다.
 server.on("error", (error) =>  {
