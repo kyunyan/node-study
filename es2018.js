@@ -55,6 +55,7 @@ oldObject
 // 불필요하게 키 벨류 쓰는 게 많은데
 // {data : data , value : value }
 // {data , value}               이런식으로 사용 가능
+// 동적할당 사용 가능
 let newObject2 = {
     sayJs(){
         console.log(`JS`);
@@ -78,13 +79,15 @@ var add2 = function(x,y){
     return x+y;
 }
 
-// es6 에서는 
+// es6 에서는
 const add3 = (x,y) => {
     return x+y;
 }
-const add4 = (x,y) => x+y; // 중괄호가 없으면 바로 리턴 시키는 구나 알면됨
+
+const add4 = (x,y) => x+y; // 중괄호가 없거나 (x+y) 소괄호면 바로 리턴 시키는 구나 알면됨
 
 // function 과 화살표 함수의 가장 큰 차이가 this 이다
+
 var relationship1 = {
     name : "zero" ,
     friends : ["nero", "hero", "xero"],
@@ -114,6 +117,7 @@ var relationship2 = {
         });
     }
 }
+
 relationship2.logFriends();
 
 // 비구조화 할당(destructuring)
