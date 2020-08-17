@@ -1,8 +1,15 @@
 const odd = "홀수입니다";
+// const 는 값을 바꿀수 없다
 let even = "짝수입니다";
+// let은 값을 바꿀수 있다.
+
 
 console.log("var.js" + odd);
 even = even + "zero";
+
+// es javascript 표준
+// 브라우저들이 이표준을 보고 구현
+// es2015에서 es6문법이 나옴
 
 // odd와 even을 다른 곳에 사용하고 싶다면 html에서 script 를 호출하여 합처서 사용
 
