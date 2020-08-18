@@ -118,7 +118,7 @@ promise
 
 // then에 리턴 값이 있으면 다음 then으로 넘어갑니다.
 // Promise를 리턴하면 reslolve나 reject 되어 넘어갑니다.
-// rejct 였으면 catch가 잡는다. 
+// reject 였으면 catch가 잡는다. 
 
 // 처음 promise 가 성공했을때 message2에 성공을 넘겨주고 그다음 성공했을 때 message3에 성공을 넘겨준다. 
 promise

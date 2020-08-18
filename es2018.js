@@ -120,6 +120,7 @@ var relationship2 = {
 
 relationship2.logFriends();
 
+
 // 비구조화 할당(destructuring)
 var candyMachine = {
     status : {
@@ -130,7 +131,6 @@ var candyMachine = {
         this.status.cout--;
         return this.status.count;
     }
-
 }
 
 var status = candyMachine.status;
@@ -154,8 +154,8 @@ const candyMachine1 = {
 
 const {status1 ,getCandy1} = candyMachine1;
 
-const array = ["nodeJs", {}, true];
-const [node, obj, bool] = array;
+const array = ["nodeJs", {}, 10,  true];
+const [node, obj, , bool] = array;
 const [node, obj, ...bool] = array;
 
 const n = (x, ...y) => console.log(x,y);
