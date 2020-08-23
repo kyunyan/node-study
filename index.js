@@ -1,5 +1,5 @@
 const {odd, even} = require("./var");
-var checkNumber = require("./func");
+const checkNumber = require("./func");
 
 function checkStringOddOrEven(str){
     if(str.length % 2){

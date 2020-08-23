@@ -1,10 +1,7 @@
 const odd = "홀수입니다";
-// const 는 값을 바꿀수 없다
-let even = "짝수입니다";
-// let은 값을 바꿀수 있다.
+let even = "짝수입니다.";
 
-
-console.log("var.js" + odd);
+console.log(odd);
 even = even + "zero";
 
 // es javascript 표준
