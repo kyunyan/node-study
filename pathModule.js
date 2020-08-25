@@ -1,5 +1,7 @@
 const path = require("path");
 
+// process 객체에는 현재 실행중인 노드 프로그램 정보가 들어있다.
+
 path.dirname(__filename);
 path.extname(__filename);
 path.basename(__filename);
