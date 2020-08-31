@@ -1,13 +1,16 @@
 const path = require("path");
 
+// path.sep 
+// window에서는 \\  mac이나 리눅스에서는 / 으로 나타낸다.
+
 // process 객체에는 현재 실행중인 노드 프로그램 정보가 들어있다.
 
-path.dirname(__filename);
-path.extname(__filename);
-path.basename(__filename);
+console.log(path.dirname(__filename));
+console.log(path.extname(__filename));
+console.log(path.basename(__filename));
 
 
-console.log(path.normalize("c://usr\\\aaa\\path.js"));       // 경로 확인해줌
+console.log(path.normalize("c://usr\\\aaa\\path.js"));       // 경로 확인해서 제대로 만들어줌
 console.log(path.isAbsolute("c:/"));                        // 상대경로인지 절대경로인지 확인
 console.log(path.relative("c://users://zerocho//path.js"), "c://"); // 어디에 경로가 있는지 알려준다 상대경로로 보여줌 
 console.log(path.parse(__filename));    
