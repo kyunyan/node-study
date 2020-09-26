@@ -35,7 +35,7 @@ console.timeEnd("시간 측정");
 // 어떤 함수를 거쳐서 나오는지 알수있다.
 function b(){
     console.trace("에러 위치 추적");
-}
+ }
 function a(){
     b();
 }
