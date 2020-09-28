@@ -74,4 +74,108 @@
         console.log(text);
     }
     print(captinAmerica);
-*/
+
+    setter getter
+    const numbers = {
+        a: 1, 
+        b: 2
+        get sum(){
+            console.log("sum 함수가 실행됩니다");
+            return this.a + this.b;
+        } 
+    }
+
+    const dog = {
+        _name : '멍멍이' ,
+        get name(){
+            console.log("내")
+        }
+        set name(value){
+            this._name = value;
+        }
+    }
+
+    const numbers = {
+        _a : 1, 
+        _b: 2,
+        sum : 3,
+        calculate(){
+            this.sum = this._a + this._b;
+        }
+
+        get a(){
+            return this._a;
+        }
+
+        get b(){
+            return this._b;
+        }
+
+        set a(value){
+            this._a = value;
+            this.calculate();
+        }
+
+        set b(value){
+            this._b = value;
+            this.calculate();
+        }
+    }
+
+    배열
+    const array = [];
+    새로운 항목은 push
+
+    반복문
+    for
+    시작 -> 조건 -> 구문실행        특정조건이
+    
+    while
+    let i =0; 
+    let isFun = false;
+
+    while(isFun === false){
+        console.log(i);
+        i++;
+        if(i === 30){
+            isFun = true;
+        }
+    }
+
+    for of / for in
+    const numbers = [10,20,30,40,50];
+    for(let number of numbers){
+        console.log(number);
+    }
+
+    for in 객체 정보 반복문
+    const doggy = {
+        name : '멍멍이' ,
+        sound : '멍멍' , 
+        age : 2
+    }
+
+    console.log(Object.entries(doggy));         // 키와 밸류형태로 배열로만듬
+    console.log(Object.keys(doggy));            // 키만 추출
+    console.log(Object.values(doggy));          // value 만 추출
+    for(let key in doggy){
+        console.log(key +" : "+doggy[key])
+    }
+  
+    continue;  구간 스킵  break;    반복문 멈추게 만듬
+
+    배열 내장함수
+    forEach
+    const hero = [1,2,3,4,5];
+    hero.forEach(data => {
+        console.log(data);
+    })
+
+    map
+    const array = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    const squared = array.map(n => n * n);
+    
+    */
+
+
