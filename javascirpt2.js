@@ -30,4 +30,9 @@ console.log(name);
 console.log(true && "hello");
 
 const name = false || 'hello'
+
+함수의 기본 파라메터
+function calculatCircleArea = (r = 1 ) =>
+    return Math.PI * r * r;
+
  */

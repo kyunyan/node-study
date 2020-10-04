@@ -88,6 +88,7 @@ const dog = new Dog( "멍멍이" , "망망");
 cosnt cat = new Cat( "야옹이", "야옹");
 
 Food class 만들기
+
 class Food {
     constructor(name){
         this.name = name;
