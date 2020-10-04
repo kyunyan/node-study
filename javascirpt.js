@@ -175,7 +175,91 @@
     const array = [1, 2, 3, 4, 5, 6, 7, 8]
 
     const squared = array.map(n => n * n);
+
+    const items = [
+        {id : 1, test : 'hello'}, {id : 2 , text : 'bye'}
+    ]
+   
+    const texts = items.map(item => item.text);         // 객체에 text 부분만 뽑아낸다
+    console.log(texts);
+
+    const superheres = ['아이언맨','캡틴 아메리카', '토르']           //indexOf
+    const index = superheres.indexOf('토르');    //2        -1 은 일치하는것이 없다.
+        
+    // findIndex 몇번째 인지
+    const todos = [ {id : 1, text : 'test' , done : true}, {id : 2, text : 'test2' , done : true} , {id : 3, text : 'test3' , done : true}]
+    const index = todos.findIndex(todo => todo.id === 3)     // 비교하는건 함수  2
+   
+    // find 는 객체를 리턴한다
+    const index = todos.find(todo => todo.id === 3)     // 비교하는건 함수  {}
+
+    //filter 
+    const tasksNotDone = todos.filter(todo => todo.done === false);
+    console.log(tasksNotDone);
+
+    // 특정항목 제거
+    기존의 배열을 건드린다. 
+    const numbers = [10,20,30,40];
+    const index = numbers.indexOf(30);
+    const  spliced = numbers.splice(index, 1); 
+    console.log(spliced)            // 30
+    console.log(numbers)            // 10, 20 ,40
     
+    // 기존의 배열을 건드리지 않는다.
+    const numbers = [10,20,30,40];
+    
+    const spliced = numers.slice(0,2);
+    console.log(sliced);
+    console.log(numbers);
+
+    shift,pop,unshift, push
+    const numbers = [10,20,30,40];
+    
+    기존의 배열 수정
+    const value = numbers.shift();      0번째를 빼준다          shift 랑 unshift 란짝
+    console.log(value);         // 10
+
+    // 기존의 배열수정
+    const value = numbers.pop();        끝애 거를 빼준다            push 랑 pop이랑 짝
+     console.log(value);         // 40
+
+    numbers.unshift(5);             앞에 추가
+    console.log(numbers)        [5,10,20,30,40]
+
+    const arr1 = [1,2, 3];
+    const arr2 = [4,5,6];
+
+    // 기존의 배열을 건들지 않는다.
+    const concated = arr1.concat(arr2);        [1,2,3,4,5,6];
+    const concated = [...arr1 , ...arr2]       [1,2,3,4,5,6]
+
+    join        join은 세펄에이터
+    const array= [1,2,3,4,5];
+    array.join()            // 1,2,3,4,5
+    array.join(' ')            // 1 2 3 4 5
+    
+    reduce  reduce 배열안에 있는 값을 연산해서 할때 사용
+    const numbers = [1,2,3,4,5];
+    
+    let sum = numbers.reduce((accumulator, current) => accumulator+current , 0);
+
+    const avg = numbers.reduce((accumulator, current, index, array) => {
+        if(index === array.length -1){
+            return (accumulator+current) / array.length
+        }    
+        return accumulator+current;
+    } , 0);
+    accumulator sum 값이 된다. index , array 도 받아올수있다.
+
+    const alphabets = ['a', 'a', 'a', 'b', 'c', 'c']
+    const counts = alphabets.reduce((acc, current) => {
+        if(acc[current]){
+            acc[currnet] += 1;
+        }else{
+            acc[current] = 1;
+        }
+        return acc;
+    }, {})
     */
 
 
