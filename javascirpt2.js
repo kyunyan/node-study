@@ -50,7 +50,20 @@ const area = calculateCircleArea();
 const name = false || 'hello'
 
 함수의 기본 파라메터
-function calculatCircleArea = (r = 1 ) =>
-    return Math.PI * r * r;
+function calculatCircleArea = (r = 1 ) =>  Math.PI * r * r;
+
+조건문 더 스마트 하게 쓰기
+function isAnimal(text){
+    const animals = ["고양이", "개", "거북이", "너구리"];
+    return animals.includes(text);
+}
+
+const isAnimal = text => ["고양이", "개", "거북이", "너구리"].includes(text);
+
+isAnimal("개")      // true
+
+function getSound(animal){
+    if(animal === "개")     return "멍멍!"
+}
 
  */
