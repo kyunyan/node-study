@@ -53,7 +53,7 @@ const name = false || 'hello'
 function calculatCircleArea = (r = 1 ) =>  Math.PI * r * r;
 
 조건문 더 스마트 하게 쓰기
-function isAnimal(text){
+function isAnimal(text){                    // if 문이 아닌 
     const animals = ["고양이", "개", "거북이", "너구리"];
     return animals.includes(text);
 }
@@ -63,7 +63,28 @@ const isAnimal = text => ["고양이", "개", "거북이", "너구리"].includes
 isAnimal("개")      // true
 
 function getSound(animal){
-    if(animal === "개")     return "멍멍!"
+    const sounds = {
+        개 : '멍멍!' ,
+        고양이 : '야옹 ~ ' ,
+        참새 : '짹짹' ,
+        비둘기 : '구구 구 구'
+    }
+
+    return sounds[animal] || '...?';
+}
+
+console.log(getSound('개'));
+console.log(getSound('고양이'));
+
+function makeSound(animal){
+    const sounds = {
+        개 : '멍멍!' ,
+        고양이 : '야옹 ~ ' ,
+        참새 : '짹짹' ,
+        비둘기 : '구구 구 구'
+    }
+
+    return sounds[animal] || '...?';
 }
 
  */
