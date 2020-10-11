@@ -77,11 +77,16 @@ console.log(getSound('개'));
 console.log(getSound('고양이'));
 
 function makeSound(animal){
-    const sounds = {
-        개 : '멍멍!' ,
-        고양이 : '야옹 ~ ' ,
-        참새 : '짹짹' ,
-        비둘기 : '구구 구 구'
+    const tasks = {
+        개 : () => {
+            console.log("멍멍!");
+        },
+        고양이(){                   // 밑에거보다 위에게 더 나은 코드 최신 자바스크립트 객체안에 함수
+            console.log('야옹!');
+        },
+        비둘기 : function(){
+
+        }
     }
 
     return sounds[animal] || '...?';
