@@ -27,10 +27,50 @@
     const check1 = Symbol('check');
   
     check === check1
+
    null undefied  둘다 없다라는걸 의미한다.
-    null :  진짜 없다 사용자 정의 
-    undefiend : 정의되지 않았다. 사용자 정의 x
-    
+    null :  진짜 없다 사용자 정의               프로그래머에게 허용된 데이터 타입
+    undefiend : 정의되지 않았다. 사용자 정의 x          자바스크립트 자체에서 사용
+
+    객체 객체의 본질은 컨테이너 컨테이너의 내용이 지나면서 바뀔수는 있지만 내용물이 바뀐다고 컨테니이너가 바뀌는것은 아니다.
+    객체와 배열의 차이는 객체는 순서가 없고 배열은 순서가 있다. 객체는 오직 키와 벨류
+    const obj = {};
+    객체의 콘텐츠를 프로퍼티 또는 맴버라고 부른다.
+    obj.color = "yellow" 
+    obj["red"] = "red"
+    객체 프로퍼티 삭제할때는 
+    delete obj.color
+
+    const s = "hello";
+    s.toUpperCase() 
+    함수를 사용할수있는 이유는 자바스크립트가 일시적으로 String객체를 만든다 이 임시객체안에 toUpperCase 함수가 들어있다
+    자바스크립트 함수를 호출하는 즉시 임시객체를 파괴한다.
+    확인법
+    s.test = 3;
+    s.test // undefined
+
+    배열은 
+    순서가 있고 순차적인 숫자이다.
+
+    날짜 객체 date 객체는 컴퓨터 날짜를 따른다.
+    const date = new Date();
+    date.getFullYear();
+    date.getMonth()
+    date.getDay();
+    date.getHours();
+    date.getMinutes()
+    date.getSeconds();
+    date.getMilliseconds();
+
+    정규표현식
+    문자열에서 필요한 복잡한 검색과 교체작업을 단순하게 만든다
+    var result = "abcde5q".match(/\d/)[0];
+
+    console.log(result); //결과 값: 5
+
+    맥과 셋
+    es6에서 새로운문법  새로운 데이터타입 Map Set , 그들의 약한짝인 WeakMap과 WeakSet을 도입
+
     연산자
     산술연산자 , 대입연산자        =  대입 연산자
     논리 연산자                  
@@ -54,7 +94,59 @@
             break;
         default : 
             console.log("없습니다.");
-            
+   
+      break 루프 중간을 빠젼가간다
+    continue 루프에서 다음단계로 건너뛴다.
+          
+    반복문
+    for
+    시작 -> 조건 -> 구문실행        특정조건이
+    
+    while
+    let i =0; 
+    let isFun = false;
+
+    while(isFun === false){
+        console.log(i);
+        i++;
+        if(i === 30){
+            isFun = true;
+        }
+    }
+
+    for of / for in
+    const numbers = [10,20,30,40,50];
+    for(let number of numbers){     for of es6문법
+        console.log(number);
+    }
+
+    for in 객체 정보 반복문
+    const doggy = {
+        name : '멍멍이' ,
+        sound : '멍멍' , 
+        age : 2
+    }
+
+    console.log(Object.entries(doggy));         // 키와 밸류형태로 배열로만듬
+    console.log(Object.keys(doggy));            // 키만 추출
+    console.log(Object.values(doggy));          // value 만 추출
+    for(let key in doggy){
+        console.log(key +" : "+doggy[key])
+    }
+  
+    continue;  구간 스킵  break;    반복문 멈추게 만듬
+
+    while(fund > 1  )
+        fund ++;
+    for(let temp, i=0 , j=1; j<30; temp = i, i=j , j = i+temp)
+        console.log(j);
+    for(;;;)    
+    들여쓰기는 명확하게 구분되도록해야된다
+    프로젝트 스타일 가이드에 따라서 개발할것 개인적인 의견은 접어두고
+    var i =0;
+    do{
+        console.log(i)
+    }while(i < -1);
     
     함수
     function add(a,b){
@@ -144,44 +236,7 @@
     const array = [];
     새로운 항목은 push
 
-    반복문
-    for
-    시작 -> 조건 -> 구문실행        특정조건이
-    
-    while
-    let i =0; 
-    let isFun = false;
-
-    while(isFun === false){
-        console.log(i);
-        i++;
-        if(i === 30){
-            isFun = true;
-        }
-    }
-
-    for of / for in
-    const numbers = [10,20,30,40,50];
-    for(let number of numbers){
-        console.log(number);
-    }
-
-    for in 객체 정보 반복문
-    const doggy = {
-        name : '멍멍이' ,
-        sound : '멍멍' , 
-        age : 2
-    }
-
-    console.log(Object.entries(doggy));         // 키와 밸류형태로 배열로만듬
-    console.log(Object.keys(doggy));            // 키만 추출
-    console.log(Object.values(doggy));          // value 만 추출
-    for(let key in doggy){
-        console.log(key +" : "+doggy[key])
-    }
-  
-    continue;  구간 스킵  break;    반복문 멈추게 만듬
-
+   
     배열 내장함수
     forEach
     const hero = [1,2,3,4,5];
