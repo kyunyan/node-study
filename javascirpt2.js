@@ -259,7 +259,7 @@ myPromise.then(result => {
     console.log(result)
 }).catch(e = > {
     console.log(e);
-});
+})
 
 function increaseAntPrint(n){
     return new Promise((resolve, reject) => {

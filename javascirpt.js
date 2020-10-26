@@ -116,7 +116,7 @@
 
     for of / for in
     const numbers = [10,20,30,40,50];
-    for(let number of numbers){     for of es6문법
+    for(let number of numbers){     for of es6문법 배열 객체가능
         console.log(number);
     }
 
@@ -147,7 +147,23 @@
     do{
         console.log(i)
     }while(i < -1);
+
+    for 문에서 조건을 찾으면 break 나 return 을 써서 불필요한 연산 줄이기
+    배열을 수정할때는 감소하는 인덱스 사용하기
+    for(let i=0; i < array.length; i++){
+        if(isTest(array[i]))        array.splice(i , 1)
+    }
     
+    typeof undefined        "undefined"
+    typeof null             "object"
+    typeof {}               "object"
+    typeof true             "boolean"
+    typeof 1                "number"
+    typeof ""               "string"
+    typeof Symbol()             "symbol"
+    typeof function(){}         "function"
+
+
     함수
     function add(a,b){
         return a+b;
