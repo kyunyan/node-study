@@ -204,4 +204,87 @@ cosnt 와 let 은 호이스팅이 동작하지 않음
 
 eslint를 사용하게되면 호이스팅이 애러로 나오기때문에 잡을수있다.
 
+비동기 처리의 이해
+function work(callback){
+    setTimeout(()=> {
+        const start = Date.now();
+        for(let i=0; i < 100000000; i++){
+
+        }
+        const end = Date.now();
+        console.log(end - start + 'ms');
+        callback(end- start)
+    }, 0)
+}
+
+console.log("작업시작 !!");
+work((ms) => {
+    console.log("작업이 끝났어요!");
+    console.log(ms + "ms 걸렷다고 해요.")
+});
+
+console.log("다음작업!")
+
+Promise es6 도입된 기능
+비동기작업
+
+function increaseAndPrint(n, callback){
+    setTimeout(() => {
+        const increased = n + 1;
+        console.log(increased);
+        if(callback){
+            callback(increased);
+        }
+    }, 1000)
+}
+increaseAndPrint(0, n => {
+    increaseAndPrint(n,n => {
+        increaseAndPrint(n,n => {
+            increaseAndPrint(n,n => {
+                console.log("작업끝")
+            })
+        })
+    })
+})
+
+콜백지옥
+
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("result")
+    }, 1000)
+})
+
+myPromise.then(result => {
+    console.log(result)
+}).catch(e = > {
+    console.log(e);
+});
+
+function increaseAntPrint(n){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const value = n+1;
+            if(value === 5){
+                const error = new Error();
+                error.name = "ValueIsFiveError";
+                reject(error);
+                return ;
+            }
+            console.log(value);
+            resolve(value);
+        }, 1000)
+    })
+}
+
+increaseAntPrint(0).then(n => {
+    return increaseAntPrint(n);
+}).then(n => {
+    return increaseAntPrint(n);
+})
+
+async await 
+es8 문법
+
+
  */
