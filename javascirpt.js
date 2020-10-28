@@ -86,6 +86,7 @@
     }
     const device = 'samsung'
     switch(device){
+        case 'test' :
         case 'samsung' : 
             console.log("삼성");
             break;
@@ -138,6 +139,7 @@
 
     while(fund > 1  )
         fund ++;
+    파보나치수열
     for(let temp, i=0 , j=1; j<30; temp = i, i=j , j = i+temp)
         console.log(j);
     for(;;;)    
