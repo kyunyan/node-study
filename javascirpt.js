@@ -2,19 +2,7 @@
    크롬 브라우저에 대해서 설명
    console.log();
    코드 센드박스.
-   
-    선언 : 특정 이름에 특정 값을 담는 것
-    변수 : 이름이 붙은 값으로 값이 변경가능
-    상수 : 값을 할당받지만 한 번 할당한 값은 변경 불가능 객체에 프로퍼티 추가가능
-    var            변수            재정의 가능           함수형 스코프             es5         
-    let            변수            재정의 불가능          블록 스코프              es6
-    const          상수            재정의 불가능          블록 스코프              es6
-    변수보다는 상수를 쓰는게 맞다.
-    javascript 인터프리터 언어 es6를 es5로 트랜스 컴파일
-    바벨에 대해서 
-    에버그린 : 브라우저가 동작하려면 항상 인터넷에 연결이 되어 있어야하므로 항상 최신버전 유지가능 에버그린 브라우저들은 사용자가 업데이터 거부할수 없으므로
-    항상 최신버전 사용 ex)chrome, FireFox
-    하지만 에버그린 브라우저도 es6의 모든기능을 지원하지 않기때문에 트렌스컴파일은 피할수없다.
+ 
 
     자바스크립트 식별자 카멜 케이스 currentDate 스네이크 케이스 current_date 일관성
 
@@ -77,10 +65,27 @@
     // NOT !              !test           validation 체크 
     // AND &&     
     // OR ||              let a = test || "1";
-    비교연산자
-    1 == true   
+    거짓   undefined , null , false , 0 , "", NAN -> 수치연산을 해서 정상적인 값을 얻지 몰할때 출력되는 값 . Not a number 1- "a" = NAN
+     비교연산자
+    1 == true    <      >
     타입을 비교하지 않는다.
+    조건 연산자
+    cosnt a = true ? "test" : "false"
+
+    type of 연산자
+     typeof undefined        "undefined"
+    typeof null             "object"
+    typeof {}               "object"
+    typeof true             "boolean"
+    typeof 1                "number"
+    typeof ""               "string"
+    typeof Symbol()             "symbol"
+    typeof function(){}         "function"
+
+
+    조건문
     const a = 0;
+    
     if(a+1 === 2){
         console.log("a+1이 입니다. ");
     }
@@ -148,37 +153,128 @@
         console.log(i)
     }while(i < -1);
 
-    for 문에서 조건을 찾으면 break 나 return 을 써서 불필요한 연산 줄이기
-    배열을 수정할때는 감소하는 인덱스 사용하기
-    for(let i=0; i < array.length; i++){
+    1. continue문을 사용하여 조건중첩 줄이기
+    while(i< 50){
+        if(i == 20){
+
+            continue;
+        }
+        // 여기서 else 문이 아닌 continue 문을 사용함으로써 조건의 중첩을 줄인다.
+        // 플레이
+        // 중첩을 제거하면 코드가 읽시 쉬워진다.
+    }
+
+    2. 루프문에서 조건을 찾으면 break 나 return 을 써서 불필요한 연산 줄이기
+    for(var i =0 ; i< 30; i++){
+        if(i== 10){
+            console.log("test")
+            break;
+        }
+    }
+    3. 배열을 수정할때는 감소하는 인덱스 사용하기
+    for(let i= array.length; i > 0; i--){
         if(isTest(array[i]))        array.splice(i , 1)
     }
     
-    typeof undefined        "undefined"
-    typeof null             "object"
-    typeof {}               "object"
-    typeof true             "boolean"
-    typeof 1                "number"
-    typeof ""               "string"
-    typeof Symbol()             "symbol"
-    typeof function(){}         "function"
-
-
-    함수
-    function add(a,b){
-        return a+b;
-    }
-    const sum = add(1,2);
-    var test = 1;
-    console.log(`qwe ${test}`);
    
+
+    함수 
+    함수는 하나의 단위로 실행되는 문의 집합이다
+    자바스크립트는 강력함과 표현함의 근간이다 일급함수 
+    function add(a,b){      // add 함수명 a,b 매개변수
+        return a+b;             // 반환값 
+                                // return 을 명시적으로 반환하지 않으면 자바스크립트는 undefined 를 반환한다.
+    }
+    const sum = add(1,2);               // 함수를 변수에 할당할수있다.
+    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.
+    
+    sum.f = {}      // 함수에 객체 프로퍼티나
+    
+    const o = {}
+    o.sum = sum ;       // 함수를 객체 프로퍼티에 할당 가능하다.
+    const arr = [1,2,3];
+    arr[1] = sum;       // 배열 요소에도 할당할수있따.
+
+    es6에서 함수의 기본파라메터를 지정할수있다.
+    매개변수 해체및 확장연산자(...)를 써서매겨 변수 처리 가능
+
+    매개변수 해체    
+    // 비구조화 할당
+    const captinAmerica = {
+        name: "스티븐 로저스",
+        actor: "크리스 에반스",
+        alias: "캡틴 아메리카"
+    };
+    function print(hero) {
+        const {alias, name, actor} = hero;      // 반드시 변수이름과 프로퍼티 이름이 일치해야된다
+        const text = `${alias}(${name}) 역할을 맡은 배우는 ${actor} 입니다.`;
+        console.log(text);
+    }
+    print(captinAmerica);
+
+    확장 연산자
+    function addPrefix(prefix, ...words){
+        return words;
+    }
+
+    addPrefix(1,2,3,4,5)
+    (4) [2, 3, 4, 5]
+        
     화살표 함수
     const add = (a,b) => {
         return a+b;
     }
     const add = (a,b) => return a+b;
     function this 와  화살표 함수의 this가 다르다.
+    const o = {
+    name : "알렌", 
+        eat(){ console.log(`${this.name} 밥을 먹는다.`)}
+    }
+    undefined
+    o.eat()
+    VM446:3 알렌 밥을 먹는다.
+    undefined
+    const k= {
+        name : "알렌", 
+        eat : () => { console.log(`${this.name} 밥을 먹는다.`)}
+    }
+    undefined
+    k.eat()
+
+    function 을 생략해도 됩니다.
+    함수에 매개변수가 단 하나 뿐이라면 괄호(())도 생략할수 있습니다.
+    함수 바디가 표현식 하나라면 중괄호 return 문도 생략할 수 있습니다.
+    const f1 = function(){return "hello"};
+    const f1 = () => "hello";
+
+    const f2 = function(name){return `hello ${name}!`}
+    const f2 = name => `Hello ${name}`
+
+    const f3 = function(a,b){return a+b}
+    const f3 = (a,b) => a+b;
+
+    call apply, bind
+    const bruce = {name : "bruce"};
+
+    function greet(){
+        return `Hello, I'm ${this.name}`;
+    }
+   
+    greet()
+    greet.call(bruce)
+
+    function update(birthday, occupation){
+        this.birthday = birthday;
+        this.occupation = occupation;
+    }
     
+    const bruce = {name : "bruce"};
+    
+    update.call(bruce, 1949, "singer")
+    
+    bruce
+    {name: "bruce", birthday: 1949, occupation: "singer"}
+
     객체
     const school = {
         name : "학교" , 
@@ -187,19 +283,6 @@
     console.log("asd");
     var test = 1;
     console.log(`qwe ${test}`);
-    
-    // 비구조화 할당
-    const captinAmerica = {
-        name: "스티븐 로저스",
-        actor: "크리스 에반스",
-        alias: "캡틴 아메리카"
-    };
-    function print(hero) {
-        const {alias, name, actor} = hero;
-        const text = `${alias}(${name}) 역할을 맡은 배우는 ${actor} 입니다.`;
-        console.log(text);
-    }
-    print(captinAmerica);
 
     setter getter
     const numbers = {
@@ -248,6 +331,10 @@
         }
     }
 
+    프로토타입
+    모든 객체는 자신의 부모역활을 하는 객체와 연결되어 있다.
+    객체 지향의 상속개념과 비슷하게 모든 부모객체의 프로퍼티를 자신의 것처럼 쓸수 있는 거같은 특징이있다
+    이러한 부모타입의 객체를 프로토타입 객체라고한다.
     배열
     const array = [];
     새로운 항목은 push
@@ -259,6 +346,8 @@
     hero.forEach(data => {
         console.log(data);
     })
+
+    ... 
 
     map
     const array = [1, 2, 3, 4, 5, 6, 7, 8]
