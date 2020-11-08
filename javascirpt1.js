@@ -1,4 +1,10 @@
 /*
+자바스크립트의 모든 객체는 자신의 부모역활을 하는 객체와 연결되어 있다.
+객체지향의 상속 개념과 같이 부모 객체의 프로퍼티를 자신의 것처럼 쓸수 있다는 특징이 있다
+이러한 부모객체를 프로토타입 객체라고한다.
+var foo = {}
+console.log(foo.toString())         // foo 객체의 부모인 프로토타입 객체에 to String()이 정의 되있다.
+
 프로토 타입 클래스 객체 생성자
 function Animal(type, name ,sound){
     this.type = type;
