@@ -35,7 +35,7 @@
                                 // return 을 명시적으로 반환하지 않으면 자바스크립트는 undefined 를 반환한다.
     }
     const sum = add(1,2);               // 함수를 변수에 할당할수있다.
-    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.
+    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.  표현식 추천 이유는 호이스팅
     
     sum.f = {}      // 함수에 객체 프로퍼티나
     
@@ -68,13 +68,18 @@
 
     addPrefix(1,2,3,4,5)
     (4) [2, 3, 4, 5]
-        
-    화살표 함수
-    const add = (a,b) => {
-        return a+b;
+    
+    this 키워드
+    const o = {
+        name : "홍길동",
+        speak(){ return `My name is ${this.name} 입니다.`}
     }
-    const add = (a,b) => return a+b;
-    function this 와  화살표 함수의 this가 다르다.
+    o.speak()       // My name is 홍길동 입니다.
+    o.speak()를 호출하면 this가 o에 묶읍니다.
+    this가 o에 묶인 이유는 프로퍼티여서가 아니라 o에서 speak를 호출했기때문이다.
+    this를 결정하는 것은 스트릭트 모드인지에 따라 다르고 함수를 어디서 호출했느냐에 따라도 다르다
+    메서드
+    
     const o = {
     name : "알렌", 
         eat(){ console.log(`${this.name} 밥을 먹는다.`)}
@@ -89,6 +94,15 @@
     }
     undefined
     k.eat()
+
+    화살표 함수
+    화살표 함수와 function 키워드의 차이는 this가 달라진다.
+    const add = (a,b) => {
+        return a+b;
+    }
+    
+    const add = (a,b) => return a+b;
+    function this 와  화살표 함수의 this가 다르다.
 
     function 을 생략해도 됩니다.
     함수에 매개변수가 단 하나 뿐이라면 괄호(())도 생략할수 있습니다.
