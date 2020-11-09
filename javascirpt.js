@@ -26,16 +26,55 @@
     date.getSeconds();
     date.getMilliseconds();
 
+    함수
+    
+    일반적으로 자바스크립트 코드를 작설할때 함수 선언문 방식으로 선언된 함수 끝에 세미클론을 붙이지 않지만 함수 표현식 방식의 경우 세미클론을 붙이는 것을 권장
+    자바스크립트 인터프리트가 자동으로 세미클론 삽입
+
+    var func = function(){
+        return 42;
+    }
+    (function(){
+        console.log("function called")
+    })();
    
-    함수 
+    애러 나는 이유는 자바스크립트 파서가 func()의 함수 정의에서 세미클론을 사용하지 않아. return 42 문장을 지나 func()의 함수 정의 끝에 있는 중괄호 {} 만으로 func()함수가 끝났다고 판단하지 않기때문이다
+    많은 자바 스크립트 가이드에서 함수 표현식 방식에서 세미클론 사용을 권고
+    
+    자바스크립트의 함수도 Function()이라는 기본 내장 생성 함수로부터 생성된 객체
+
     함수는 하나의 단위로 실행되는 문의 집합이다
     자바스크립트는 강력함과 표현함의 근간이다 일급함수 
+    함수 선언식
     function add(a,b){      // add 함수명 a,b 매개변수
         return a+b;             // 반환값 
                                 // return 을 명시적으로 반환하지 않으면 자바스크립트는 undefined 를 반환한다.
     }
     const sum = add(1,2);               // 함수를 변수에 할당할수있다.
-    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.  표현식 추천 이유는 호이스팅
+    
+    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.  
+    
+    표현식 추천 이유는 호이스팅
+
+    add(2,3)
+    function add(x,y){
+        return x+y;
+    }
+
+    add(2,3)
+    var add = function(x,y){
+        return x+y;
+    }
+
+    함수 호이스팅이 발생하는 원인은 자바스크립틔 변수 생성 초기화 작업이 분리되어있기 때문이다.
+
+    자바스크립트 함수도 객체이다. 함수에 프로퍼티 추가 가능.
+
+    var add = function(a,b){
+        return a+b;
+    }
+    이름이 없는 함수 형태를 자바스크립트에서는 익명함수라고 부른다
+    익명함수를 만들고 add 변수에 할당
     
     sum.f = {}      // 함수에 객체 프로퍼티나
     
@@ -138,6 +177,34 @@
     bruce
     {name: "bruce", birthday: 1949, occupation: "singer"}
 
+    자바스키립트트 함수를 일급객체  -> 일급객체의 특성으로 함수형 프로그래밍이 가능하다.
+    리터럴에 의해 생성
+    변수나 배열의 요소에 객체의 프로퍼티 등 할당가능
+    var boo = function(){}      
+    var obj = {}
+    obj.baz = function()
+    
+    함수의 인자로 전달가능
+    var foo = function(func){
+        func();
+    }
+    foo(function(){})
+    함수의 리턴값으로 리턴가능
+    var foo = function(){
+        return function(){
+
+        }
+    }
+    동적으로 프로퍼티를 생성 및 할당 가능
+
+    function add(x,y){}
+    
+    name 프로퍼티 : 함수의 이름
+    caller 프로퍼티 : wktlsdmf ghcnfgks gkatn
+    arguments 프로퍼티 함수를 호출할때 전달된 인자값을 나타내낸다
+
+    arguments 객체는 함수를 호출할때 호출된 함수의 내부로 인자값과 함께 전달 arguemtns 프로퍼티와 유사하게 함수를 호출할때 전달 인장의 정보 제공
+
     객체
     const school = {
         name : "학교" , 
@@ -239,10 +306,12 @@
     console.log(tasksNotDone);
 
     // 특정항목 제거
+    배열도 객체이므로 배열요소나 프로퍼티를 삭제하는 delete 연산잣 ㅏ용가능
     기존의 배열을 건드린다. 
     const numbers = [10,20,30,40];
     const index = numbers.indexOf(30);
-    const  spliced = numbers.splice(index, 1); 
+    const  spliced = numbers.splice(index, 1);
+    splice(배열 시작위치, 시작 위치로부터 삭제할 요수의수, 삭제할 위치에 추가할 요소) 
     console.log(spliced)            // 30
     console.log(numbers)            // 10, 20 ,40
     
@@ -301,6 +370,12 @@
         }
         return acc;
     }, {})
+
+    유사 배열객체
+    일반 객체에 length 프로퍼티를 가진 객체를 유사 배열 객체 -> arguments
+    var obj = {name : "foo", length : 1}
+    Array.prototype.push.apply(obj, ["baz"]);
+    console.log(obj)
     */
 
 
