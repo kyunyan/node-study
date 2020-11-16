@@ -27,54 +27,6 @@
     date.getMilliseconds();
 
     함수
-    
-    
-    this 키워드
-    const o = {
-        name : "홍길동",
-        speak(){ return `My name is ${this.name} 입니다.`}
-    }
-    o.speak()       // My name is 홍길동 입니다.
-    o.speak()를 호출하면 this가 o에 묶읍니다.
-    this가 o에 묶인 이유는 프로퍼티여서가 아니라 o에서 speak를 호출했기때문이다.
-    this를 결정하는 것은 스트릭트 모드인지에 따라 다르고 함수를 어디서 호출했느냐에 따라도 다르다
-    메서드
-    
-    const o = {
-    name : "알렌", 
-        eat(){ console.log(`${this.name} 밥을 먹는다.`)}
-    }
-    undefined
-    o.eat()
-    VM446:3 알렌 밥을 먹는다.
-    undefined
-    const k= {
-        name : "알렌", 
-        eat : () => { console.log(`${this.name} 밥을 먹는다.`)}
-    }
-    undefined
-    k.eat()
-
-    화살표 함수
-    화살표 함수와 function 키워드의 차이는 this가 달라진다.
-    const add = (a,b) => {
-        return a+b;
-    }
-    
-    const add = (a,b) => return a+b;
-    function this 와  화살표 함수의 this가 다르다.
-
-    function 을 생략해도 됩니다.
-    함수에 매개변수가 단 하나 뿐이라면 괄호(())도 생략할수 있습니다.
-    함수 바디가 표현식 하나라면 중괄호 return 문도 생략할 수 있습니다.
-    const f1 = function(){return "hello"};
-    const f1 = () => "hello";
-
-    const f2 = function(name){return `hello ${name}!`}
-    const f2 = name => `Hello ${name}`
-
-    const f3 = function(a,b){return a+b}
-    const f3 = (a,b) => a+b;
 
     call apply, bind
     call 메서드는 모든 함수에서 사용할 수 있으며 this를 특정 값으로 지정할수 있다.
@@ -136,7 +88,7 @@
     function add(x,y){}
     
     name 프로퍼티 : 함수의 이름
-    caller 프로퍼티 : wktlsdmf ghcnfgks gkatn
+    caller 프로퍼티 : 자신을 호출한 함수
     arguments 프로퍼티 함수를 호출할때 전달된 인자값을 나타내낸다
 
     arguments 객체는 함수를 호출할때 호출된 함수의 내부로 인자값과 함께 전달 arguemtns 프로퍼티와 유사하게 함수를 호출할때 전달 인장의 정보 제공
