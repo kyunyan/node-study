@@ -417,4 +417,21 @@
     console.log(obj)
     */
 
+    /*
+    그림을 직접 그려라
+    jvm : 처음공부할때는 java를 실행주는 프로그램이 있구나
+    tmp Livrary/java/javaVirtualMachines/jdk-14.0.1.kdk/Home/bin/java Hello
+
+    자바의 버전의 다른 버전으로 컴파일 하더라도 자바가 실행된다.
+    14 버전 컴파일 한것을 8로 실행시킬수 없다.
+    8버전으로 컴파일인 한것을 14버전으로 실행시킬수있다.
+
+    컴파일 할때 옵션을 줄수 있다.
+    javac 옵션을 통해 상위버전 컴파일 한것을 컴파일해서 실행시킬수있다.
+    스프링 부트 스프링 을 실행시킬수있는 이유는 버전 컴파일을 한것을 알수있다.
+
+    unSopportedCalssVersionError 에러가 난다 call file version 58이 난다.
+    java 9 버전부터 jre 없다
+    
+    */
 
