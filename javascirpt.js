@@ -27,6 +27,133 @@
     date.getMilliseconds();
 
     함수
+    
+    일반적으로 자바스크립트 코드를 작설할때 함수 선언문 방식으로 선언된 함수 끝에 세미클론을 붙이지 않지만 함수 표현식 방식의 경우 세미클론을 붙이는 것을 권장
+    자바스크립트 인터프리트가 자동으로 세미클론 삽입
+
+    var func = function(){
+        return 42;
+    }
+    (function(){
+        console.log("function called")
+    })();
+   
+    애러 나는 이유는 자바스크립트 파서가 func()의 함수 정의에서 세미클론을 사용하지 않아. return 42 문장을 지나 func()의 함수 정의 끝에 있는 중괄호 {} 만으로 func()함수가 끝났다고 판단하지 않기때문이다
+    많은 자바 스크립트 가이드에서 함수 표현식 방식에서 세미클론 사용을 권고
+    
+    자바스크립트의 함수도 Function()이라는 기본 내장 생성 함수로부터 생성된 객체
+
+    함수는 하나의 단위로 실행되는 문의 집합이다
+    자바스크립트는 강력함과 표현함의 근간이다 일급함수 
+    함수 선언식
+    function add(a,b){      // add 함수명 a,b 매개변수
+        return a+b;             // 반환값 
+                                // return 을 명시적으로 반환하지 않으면 자바스크립트는 undefined 를 반환한다.
+    }
+    const sum = add(1,2);               // 함수를 변수에 할당할수있다.
+    
+    함수 표현식은 식별자에 할당할 수도 있고 즉시 호출할수도 있다.  
+    
+    표현식 추천 이유는 호이스팅
+
+    add(2,3)
+    function add(x,y){
+        return x+y;
+    }
+
+    add(2,3)
+    var add = function(x,y){
+        return x+y;
+    }
+
+    함수 호이스팅이 발생하는 원인은 자바스크립틔 변수 생성 초기화 작업이 분리되어있기 때문이다.
+
+    자바스크립트 함수도 객체이다. 함수에 프로퍼티 추가 가능.
+
+    var add = function(a,b){
+        return a+b;
+    }
+    이름이 없는 함수 형태를 자바스크립트에서는 익명함수라고 부른다
+    익명함수를 만들고 add 변수에 할당
+    
+    sum.f = {}      // 함수에 객체 프로퍼티나
+    
+    const o = {}
+    o.sum = sum ;       // 함수를 객체 프로퍼티에 할당 가능하다.
+    const arr = [1,2,3];
+    arr[1] = sum;       // 배열 요소에도 할당할수있따.
+
+    es6에서 함수의 기본파라메터를 지정할수있다.
+    매개변수 해체및 확장연산자(...)를 써서매겨 변수 처리 가능
+
+    매개변수 해체    
+    // 비구조화 할당
+    const captinAmerica = {
+        name: "스티븐 로저스",
+        actor: "크리스 에반스",
+        alias: "캡틴 아메리카"
+    };
+    function print(hero) {
+        const {alias, name, actor} = hero;      // 반드시 변수이름과 프로퍼티 이름이 일치해야된다
+        const text = `${alias}(${name}) 역할을 맡은 배우는 ${actor} 입니다.`;
+        console.log(text);
+    }
+    print(captinAmerica);
+
+    확장 연산자
+    function addPrefix(prefix, ...words){
+        return words;
+    }
+
+    addPrefix(1,2,3,4,5)
+    (4) [2, 3, 4, 5]
+    
+    this 키워드
+    const o = {
+        name : "홍길동",
+        speak(){ return `My name is ${this.name} 입니다.`}
+    }
+    o.speak()       // My name is 홍길동 입니다.
+    o.speak()를 호출하면 this가 o에 묶읍니다.
+    this가 o에 묶인 이유는 프로퍼티여서가 아니라 o에서 speak를 호출했기때문이다.
+    this를 결정하는 것은 스트릭트 모드인지에 따라 다르고 함수를 어디서 호출했느냐에 따라도 다르다
+    메서드
+    
+    const o = {
+    name : "알렌", 
+        eat(){ console.log(`${this.name} 밥을 먹는다.`)}
+    }
+    undefined
+    o.eat()
+    VM446:3 알렌 밥을 먹는다.
+    undefined
+    const k= {
+        name : "알렌", 
+        eat : () => { console.log(`${this.name} 밥을 먹는다.`)}
+    }
+    undefined
+    k.eat()
+
+    화살표 함수
+    화살표 함수와 function 키워드의 차이는 this가 달라진다.
+    const add = (a,b) => {
+        return a+b;
+    }
+    
+    const add = (a,b) => return a+b;
+    function this 와  화살표 함수의 this가 다르다.
+
+    function 을 생략해도 됩니다.
+    함수에 매개변수가 단 하나 뿐이라면 괄호(())도 생략할수 있습니다.
+    함수 바디가 표현식 하나라면 중괄호 return 문도 생략할 수 있습니다.
+    const f1 = function(){return "hello"};
+    const f1 = () => "hello";
+
+    const f2 = function(name){return `hello ${name}!`}
+    const f2 = name => `Hello ${name}`
+
+    const f3 = function(a,b){return a+b}
+    const f3 = (a,b) => a+b;
 
     call apply, bind
     call 메서드는 모든 함수에서 사용할 수 있으며 this를 특정 값으로 지정할수 있다.
@@ -52,6 +179,8 @@
     
     bruce
     {name: "bruce", birthday: 1949, occupation: "singer"}
+
+    update.apply(bruce, [1995.'actor'])
     
     apply는 함수 매개변수를 처리하는 방법을 제외하면 call과 완전히 같다.
     call은 일반적인 함수와 마찬가지로 매개변수를 직접 받지만 apply는 매개변수로 배열을 받는다
@@ -88,7 +217,7 @@
     function add(x,y){}
     
     name 프로퍼티 : 함수의 이름
-    caller 프로퍼티 : 자신을 호출한 함수
+    caller 프로퍼티 : wktlsdmf ghcnfgks gkatn
     arguments 프로퍼티 함수를 호출할때 전달된 인자값을 나타내낸다
 
     arguments 객체는 함수를 호출할때 호출된 함수의 내부로 인자값과 함께 전달 arguemtns 프로퍼티와 유사하게 함수를 호출할때 전달 인장의 정보 제공
@@ -305,6 +434,9 @@
 
     unSopportedCalssVersionError 에러가 난다 call file version 58이 난다.
     java 9 버전부터 jre 없다
-    
+    jdk안에 jre들어있다
+    jdk 에서 javac
+    컴파일타임
+    런타임
     */
 
