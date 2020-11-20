@@ -186,13 +186,18 @@
     call은 일반적인 함수와 마찬가지로 매개변수를 직접 받지만 apply는 매개변수로 배열을 받는다
     apply는 배열의 최솟값과 최대 값을 구할때 사용한다.
     const array = [2,3, -5, 15 ,7];
-    Math.min.apply(null, array);
+    Math.min.apply(null, array);                // this의 값에 null을 쓴 이유는 Math.min 과 Math.max가 this와 관계없이 동작하기 때문이다.
     Math.max.apply(null, array);
     Math.min(...array);
 
     bind 
     함수의 this 값을 영구적으로 바꿀수 있다.
-    const updateBruce = update.bind(bruece);
+    const updateBruce = update.bind(bruce);
+
+    updateBruce(1904,"test")            // 해당 값에 맞게 bruce가 변경되는것을 확인할수있다.
+
+    bind는 함수의 동작을 영구적으로 바꾸므로 찾기 어려운 버그의 원인이 될수있다.
+    bind는 매우 유용하지만 함수의 this가 어디에 묵이는지 파악하고 사용
 
     자바스키립트트 함수를 일급객체  -> 일급객체의 특성으로 함수형 프로그래밍이 가능하다.
     리터럴에 의해 생성
