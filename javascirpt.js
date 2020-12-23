@@ -215,6 +215,7 @@
 
         console.log("외부 x.color : "+x.color)        //red
         console.log("외부 y.color : "+y.color)        // red
+        
         console.log(z);
     }
 
