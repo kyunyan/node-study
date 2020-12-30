@@ -1,26 +1,15 @@
-버전을 만든 효용 차이점과 과거의 시점으로 돌아갈수있다.
+git init --bare bare 작업을 할수 없고 저장소로만 사용한다.
 
-git log -p 
--p를 붙이면 각각 에 커밋과 커밋사이에 소스 차이를 알수있다.
+.git 디렉토리만 있는 디렉토리
 
-/dev/null 은 파일이 생겻다 는 것을 의미한다
 
-diff
+origin 이라는 것은 별명 같은것이다 한번 사용하면 계속해서 사용할수있다.
 
-git log 커밋아이디 시
- 커밋아이디 이전만 보인다
 
-git diff 커밋아이디..커밋아이디 
-이것과 이것의 소스상의 차이점을 보여준다.
+git remote -v  remote 에 붙은 주소를 알수있다.
 
-git diff 
-명령어 사용시 현재 워킹디렉토리에 있는 파일의 내용을 보여준다
-커밋을 하기전에 작업한 내용이 문제가있는지 문제가없는지 확인할수있는 기회를 제공한다.
+git remote remove origin  지정된 리모트 저장소를 삭제할수잇다.
 
-git diff 커밋하기전에 이전커밋과의 차이점을 보여준다. 
+git push --set-upstream origin master 깃을 푸쉬할때 오리진에 마스터 브랜치에 푸쉬한다.
 
-reset vs revert
-
-git reset git ID --hard
-
-깃에서는 왠만한 정보를 삭제하지 않는다.
+명시적으로 항상 origin에 마스터 브랜치로 세팅한다는 의미이다.
