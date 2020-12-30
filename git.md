@@ -46,5 +46,5 @@ git clone .git
 clone 을 하면 git remote -v 하면 지정된 리모트 저장소가 같다는 것을 확인할수있다.
 
 동기화 작업
-
+git pull 땡겨온다 지역저장소 입장에서 원격저장소에 있는 소스를
 
