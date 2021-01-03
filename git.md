@@ -3,48 +3,29 @@ git init --bare bare 작업을 할수 없고 저장소로만 사용한다.
 .git 디렉토리만 있는 디렉토리
 
 
-origin 이라는 것은 별명 같은것이다 한번 사용하면 계속해서 사용할수있다. 기니까 별명으로 사용하겟다
-
-
-git remote -v  remote 에 붙은 주소를 알수있다.
-
-git remote remove origin  지정된 리모트 저장소를 삭제할수잇다.
-
-git push --set-upstream origin master 깃을 푸쉬할때 오리진에 마스터 브랜치에 푸쉬한다.
---set-upstream 마스터에서 푸쉬명령을 내리면 마스터에다가 푸쉬한다는 의미이다.
-명시적으로 세팅해주는 옵션이다.
-
-
-
-명시적으로 항상 origin에 마스터 브랜치로 세팅한다는 의미이다.
-
-
-원격저장소 만들기
-
-git remote add origin 저장소 지정 origin 은 별명같은것이다 길어서 지정
-
-git remote      origin 이라는 원격 저장소 만들어졋다
-
-git remote -v 
-origin 주소
-origin 주소         origin의 주소는 이것이다.
-
-git remote add friend   remote 주소 추가가능
-
-추가하면 git remote -v 햇을때 현재 등록한 remote 주소 확인 가능하다
-origin이 원본이다
-
-git remote remove friend
-
-git push 
-local 저장소를 기준으로 내가 작업한 내용을 원격저장소로 보낼때 push 사용한다
-git push origin master
-
-origin 이라는 이름으로 master 브랜치를 등록하겟다고 push 를 저장한다
-
-git clone .git
-clone 을 하면 git remote -v 하면 지정된 리모트 저장소가 같다는 것을 확인할수있다.
 
 동기화 작업
 git pull 땡겨온다 지역저장소 입장에서 원격저장소에 있는 소스를
+push 를 하기전에는 pull을 해야된다
+원격저장소에 작업한 내용이 있을수 있다. 다른 원격저장소에서 푸쉬하기전에 퓌 할수있다
+로컬저장소와 원격저장소의 상태가 다르면 일단 원격 저장소에서 있는 것을 가지고 와서 충돌이 나면 해결을하고 원격저장소로 올려야 한다.
 
+분산버전 관리시스템 지역저장소에서 버전을 가지고있다가 필요할때마다 원격저장소에서 동기화 시키는 분산버전 관리시스템이라고 한다.
+자주 푸쉬를 해서 내가 수정한 소스를 다른 개발자들이 가져갈수있도록 하는 것이 좋다
+
+git pull git fetch
+
+git log --decorate --all 모든 브랜치에 대한 로고를 보여준다
+
+git fetch 는 원격저장소로부터 필요한 파일들을 받기만하고 git emrge
+원격저장소로부터 가져오기만 하기때문에 원격저장소에 있는 내용과 지역저장소에 마스터 에있는 내용상의 차임점을 비교해볼수있다.
+로그로 무슨 파일이 어떻게 변경됫는지 확인한후 merge를 할수있다.
+문제가 없다는 것을 확인한후어 
+git merge origin/master 
+
+로컬저장소에 마스터 브랜치로 병합한다
+이렇게 되면 지역저장소와 origin master 가 같은 커밋을 가르키게된다
+
+
+git pull은 원격저장소로부터 필요한 파일을 받고 merge를 해준다
+ariiii_arii/
